@@ -118,3 +118,23 @@ it(`renders the image of the first product`, async () => {
 
   mockFetch.mockRestore();
 });
+
+it(`renders the image of the all products`, async () => {
+  const mockFetch = jest.spyOn(global, "fetch").mockImplementation(() =>
+    Promise.resolve({
+      json: () => Promise.resolve(apiresult)
+    }) as Promise<Response>
+  );
+
+  await act(async () => {
+    render(<App />)
+  });
+
+  apiresult.forEach(product => {
+    const img = screen.getByAltText(`image of ${product.name}`) as HTMLImageElement;
+    expect(img.src).toBe(product.imageUrl);
+  })
+
+  mockFetch.mockRestore();
+});
+
