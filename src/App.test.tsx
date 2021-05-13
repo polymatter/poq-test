@@ -102,23 +102,6 @@ const apiresult = [
   }
 ]
 
-it(`renders the image of the first product`, async () => {
-  const mockFetch = jest.spyOn(global, "fetch").mockImplementation(() =>
-    Promise.resolve({
-      json: () => Promise.resolve(apiresult)
-    }) as Promise<Response>
-  );
-
-  await act(async () => {
-    render(<App />)
-  });
-
-  const img = screen.getByAltText(`image of ${apiresult[0].productId}`) as HTMLImageElement;
-  expect(img.src).toBe(apiresult[0].imageUrl);
-
-  mockFetch.mockRestore();
-});
-
 it(`renders the image of the all products`, async () => {
   const mockFetch = jest.spyOn(global, "fetch").mockImplementation(() =>
     Promise.resolve({
