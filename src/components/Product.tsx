@@ -18,7 +18,9 @@ export interface ProductDetails {
 const Product = (product: ProductDetails) => {
     return (
         <section className="product">
-            <img src={`${product.imageUrl}`} alt={`image of ${product.name}` }/>
+            <img className="product-image"
+                src={`${product.imageUrl}`}
+                alt={`image of ${product.name}`}/>
         </section>
     )
 }

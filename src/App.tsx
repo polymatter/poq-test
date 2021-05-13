@@ -16,8 +16,9 @@ function App() {
 
   return (
     <div className="App">
-      Test
-      <Product {...products[0]}/>
+      { products.map(product =>
+        <Product key={product.productId} {...product}/>
+      )}
     </div>
   );
 }
