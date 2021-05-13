@@ -113,7 +113,7 @@ it(`renders the image of the first product`, async () => {
     render(<App />)
   });
 
-  const img = screen.getByAltText(`image of ${apiresult[0].name}`) as HTMLImageElement;
+  const img = screen.getByAltText(`image of ${apiresult[0].productId}`) as HTMLImageElement;
   expect(img.src).toBe(apiresult[0].imageUrl);
 
   mockFetch.mockRestore();
@@ -131,7 +131,7 @@ it(`renders the image of the all products`, async () => {
   });
 
   apiresult.forEach(product => {
-    const img = screen.getByAltText(`image of ${product.name}`) as HTMLImageElement;
+    const img = screen.getByAltText(`image of ${product.productId}`) as HTMLImageElement;
     expect(img.src).toBe(product.imageUrl);
   })
 
