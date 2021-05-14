@@ -31,3 +31,13 @@ code {
   color: white;
   top: -1.5rem;
 }
+
+.product-price {
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.product-priceWas {
+  text-decoration: line-through;
+  color: red;
+}

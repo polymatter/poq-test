@@ -15,6 +15,8 @@ export interface ProductDetails {
     imageUrl: string;
 }
 
+const currencySymbol = `£`;
+
 const Product = (product: ProductDetails) => {
     return (
         <section className="product">
@@ -22,6 +24,9 @@ const Product = (product: ProductDetails) => {
                 src={`${product.imageUrl}`}
                 alt={`image of ${product.productId}`}/>
             <div className="product-promotionBadge">{product.promotionBadge}</div>
+            <div className="product-name">{product.name}</div>
+            <span className="product-price">{`${currencySymbol} ${product.price}`}</span>
+            <span className="product-priceWas">{`${currencySymbol} ${product.priceWas}`}</span>
         </section>
     )
 }
