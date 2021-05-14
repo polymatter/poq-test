@@ -15,7 +15,9 @@ code {
 .App {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   gap: 1%;
+  background-color: lightgoldenrodyellow;
 }
 
 .App > * {
