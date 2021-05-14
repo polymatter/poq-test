@@ -42,7 +42,10 @@ function App() {
   return (
     <>
       <Button variant="contained" color="primary" onClick={removeProducts}>Remove selected products</Button>
-      <Button variant="contained" color="secondary" onClick={showAll}>Show all products</Button>
+      {
+        deletedProducts.length > 0 && <Button variant="contained" color="secondary" onClick={showAll}>Show all products</Button>
+      }
+      
       <div className="App">
         {products.filter(product => deletedProducts.indexOf(product.productId) === -1).map(product =>
           <Checkable key={product.productId} onCheck={selectProduct(product.productId)}>
