@@ -30,6 +30,7 @@ code {
   background-color: red;
   color: white;
   top: -1.5rem;
+  opacity: 50%;
 }
 
 .product-price {
