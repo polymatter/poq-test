@@ -47,6 +47,16 @@ const Product = (product: ProductDetails) => {
             <div className="product-name">{product.name}</div>
             <span className="product-price">{`${currencySymbol} ${product.price}`}</span>
             <span className="product-priceWas">{`${currencySymbol} ${product.priceWas}`}</span>
+            {
+                !product.available ?
+                    <div className="product-notAvailable">OUT OF STOCK</div> :
+                    <>
+                        <div className="product-quantity">{product.quantity} in stock</div>
+                        {
+                            product.lowOnStock && <div className="product-lowStock">LOW ON STOCK</div>
+                        }
+                    </>
+            }
         </section>
     )
 }

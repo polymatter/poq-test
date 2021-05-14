@@ -43,3 +43,15 @@ code {
   text-decoration: line-through;
   color: red;
 }
+
+.product-notAvailable {
+  color: red;
+}
+
+.product-lowStock {
+  color: yellowgreen;
+}
+
+.product-quantity {
+  color: gold;
+}
