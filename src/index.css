@@ -24,3 +24,10 @@ code {
 .product-image {
   max-width: 10rem;
 }
+
+.product-promotionBadge {
+  position: relative;
+  background-color: red;
+  color: white;
+  top: -1.5rem;
+}

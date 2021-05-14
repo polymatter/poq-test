@@ -20,7 +20,8 @@ const Product = (product: ProductDetails) => {
         <section className="product">
             <img className="product-image"
                 src={`${product.imageUrl}`}
-                alt={`image of ${product.name}`}/>
+                alt={`image of ${product.productId}`}/>
+            <div className="product-promotionBadge">{product.promotionBadge}</div>
         </section>
     )
 }
