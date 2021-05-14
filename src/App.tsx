@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Checkable from './components/Checkable';
 import Product, { ProductDetails } from './components/Product'
 
 const endpoint = 'https://run.mocky.io/v3/fca7ef93-8d86-4574-9a4a-3900d91a283e'
@@ -17,7 +18,9 @@ function App() {
   return (
     <div className="App">
       { products.map(product =>
-        <Product key={product.productId} {...product}/>
+        <Checkable key={product.productId}>
+          <Product {...product}/>
+        </Checkable>
       )}
     </div>
   );
