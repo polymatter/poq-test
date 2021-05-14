@@ -11,6 +11,30 @@ export interface ProductDetails {
     imageUrl: string;
 }
 
+type StringyBool = "TRUE" | "FALSE"
+
+export interface ProductDetailsRaw {
+    productId: number;
+    name: string;
+    description: string;
+    price: number;
+    priceWas: number;
+    available: StringyBool;
+    quantity: number;
+    lowOnStock: StringyBool;
+    promotionBadge: string;
+    imageUrl: string;
+}
+
+export function convertFromRaw(raw : ProductDetailsRaw): ProductDetails {
+    const result = {
+        ...raw, 
+        lowOnStock: raw.lowOnStock === "TRUE", 
+        available: raw.available === "TRUE" && raw.quantity > 0
+    }
+    return result;
+}
+
 const currencySymbol = `£`;
 
 const Product = (product: ProductDetails) => {

@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 
 import './App.css';
 import Checkable from './components/Checkable';
-import Product, { ProductDetails } from './components/Product'
+import Product, { ProductDetails, convertFromRaw } from './components/Product'
 
 const endpoint = 'https://run.mocky.io/v3/fca7ef93-8d86-4574-9a4a-3900d91a283e'
 
@@ -16,11 +16,7 @@ function App() {
   useEffect(() => {
     fetch(endpoint)
       .then(data => data.json())
-      .then(data => {
-        data.lowOnStock = data.lowOnStock === "TRUE"
-        data.available = data.available === "TRUE" && data.quantity > 0
-        return data;
-      })
+      .then(data => data.map(convertFromRaw))
       .then(setProducts)
   }, [])
 
