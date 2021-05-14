@@ -15,7 +15,12 @@ function App() {
 
   useEffect(() => {
     fetch(endpoint)
-      .then(data => data.json() as Promise<ProductDetails[]>)
+      .then(data => data.json())
+      .then(data => {
+        data.lowOnStock = data.lowOnStock === "TRUE"
+        data.available = data.available === "TRUE" && data.quantity > 0
+        return data;
+      })
       .then(setProducts)
   }, [])
 

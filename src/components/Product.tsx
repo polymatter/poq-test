@@ -1,16 +1,12 @@
-import React from 'react'
-
-type StringyBool = "TRUE" | "FALSE"
-
 export interface ProductDetails {
     productId: number;
     name: string;
     description: string;
     price: number;
     priceWas: number;
-    available: StringyBool;
+    available: boolean;
     quantity: number;
-    lowOnStock: StringyBool;
+    lowOnStock: boolean;
     promotionBadge: string;
     imageUrl: string;
 }
